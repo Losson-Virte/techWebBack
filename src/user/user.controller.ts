@@ -1,27 +1,25 @@
 import {Body, Controller, Delete, Get, Param, Post, Put, UseInterceptors} from '@nestjs/common';
-import {Observable, of} from "rxjs";
-import {User} from "./interfaces/user.interface";
-import {USER} from "../data/user";
-import {UserService} from "./user.service";
-import {UserInterceptor} from "./interceptors/user.interceptor";
-import {CreateUserDto} from "./dto/create-user.dto";
-import {UpdateUserDto} from "./dto/update-user.dto";
-import {HandlerParams} from "./validators/handler-params";
-import {UserEntity} from "./entities/user.entity";
+import {Observable, of} from 'rxjs';
+import {UserService} from './user.service';
+import {UserInterceptor} from './interceptors/user.interceptor';
+import {CreateUserDto} from './dto/create-user.dto';
+import {UpdateUserDto} from './dto/update-user.dto';
+import {HandlerParams} from './validators/handler-params';
+import {UserEntity} from './entities/user.entity';
 import {
     ApiBadRequestResponse, ApiConflictResponse, ApiCreatedResponse, ApiImplicitBody, ApiImplicitParam,
     ApiNoContentResponse,
     ApiNotFoundResponse,
     ApiOkResponse,
     ApiResponse, ApiUnprocessableEntityResponse,
-    ApiUseTags
-} from "@nestjs/swagger";
+    ApiUseTags,
+} from '@nestjs/swagger';
 
 @ApiUseTags('autoConfig')
 @Controller('user')
 @UseInterceptors(UserInterceptor)
 export class UserController {
-    constructor (private readonly _userService: UserService) {}
+    constructor(private readonly _userService: UserService) {}
 
     @ApiOkResponse({description: 'Returns an array of dao', type: UserEntity, isArray: true})
     @ApiNoContentResponse({description: 'No dao exist in database'})
