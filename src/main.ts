@@ -7,6 +7,7 @@ import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
 import {UserModule} from './user/user.module';
 import {AppConfig} from './interfaces/app-config.interface';
 import {SwaggerConfig} from './interfaces/swagger-config.interface';
+import { ComposantModule } from './composant/composant.module';
 
 async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -25,11 +26,11 @@ async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
       .setTitle(swaggerConfig.title)
       .setDescription(swaggerConfig.description)
       .setVersion(swaggerConfig.version)
-      .addTag(swaggerConfig.tag)
+      // .addTag(swaggerConfig.tag)
       .build();
 
   const autoConfigDocument = SwaggerModule.createDocument(app, options, {
-      include: [UserModule],
+      include: [UserModule, ComposantModule],
   });
 
   SwaggerModule.setup(swaggerConfig.path, app, autoConfigDocument);

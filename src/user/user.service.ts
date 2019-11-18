@@ -1,8 +1,8 @@
 import {ConflictException, Injectable, NotFoundException, UnprocessableEntityException} from '@nestjs/common';
 import {User} from './interfaces/user.interface';
 import {USER} from '../data/user';
-import {from, Observable, of, throwError} from 'rxjs';
-import {catchError, find, findIndex, flatMap, map, tap} from 'rxjs/operators';
+import {Observable, of, throwError} from 'rxjs';
+import {catchError, flatMap, map} from 'rxjs/operators';
 import {CreateUserDto} from './dto/create-user.dto';
 import {UpdateUserDto} from './dto/update-user.dto';
 import {UserEntity} from './entities/user.entity';
@@ -74,29 +74,18 @@ export class UserService {
             );
     }
 
-    private _findUserIndexOfList(id: string): Observable<number> {
-        return from(this._user)
-            .pipe(
-                findIndex(_ => _.id === id),
-                flatMap(_ => _ > -1 ?
-                    of(_) :
-                    throwError(new NotFoundException(`User with id '${id}' not found`)),
-                ),
-            );
-    }
-
     private _addUser(user: CreateUserDto): Observable<UserEntity> {
         return of(user)
             .pipe(
                 map(_ =>
                     Object.assign(_, {
-                        id: this._createId(),
+                        id: UserService._createId(),
                     }),
                 ),
             );
     }
 
-    private _createId(): string {
+    private static _createId(): string {
         return `${new Date().getTime()}`;
     }
 }

@@ -1,5 +1,5 @@
 import {Body, Controller, Delete, Get, Param, Post, Put, UseInterceptors} from '@nestjs/common';
-import {Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {UserService} from './user.service';
 import {UserInterceptor} from './interceptors/user.interceptor';
 import {CreateUserDto} from './dto/create-user.dto';
@@ -11,11 +11,11 @@ import {
     ApiNoContentResponse,
     ApiNotFoundResponse,
     ApiOkResponse,
-    ApiResponse, ApiUnprocessableEntityResponse,
+    ApiUnprocessableEntityResponse,
     ApiUseTags,
 } from '@nestjs/swagger';
 
-@ApiUseTags('autoConfig')
+@ApiUseTags('User')
 @Controller('user')
 @UseInterceptors(UserInterceptor)
 export class UserController {

@@ -1,7 +1,7 @@
 import {CallHandler, ExecutionContext, Injectable, Logger, NestInterceptor} from '@nestjs/common';
 import {merge, Observable, of} from 'rxjs';
-import {ServerResponse} from "http";
-import {filter, flatMap, map, tap} from "rxjs/operators";
+import {ServerResponse} from 'http';
+import {filter, flatMap, map, tap} from 'rxjs/operators';
 import { FastifyReply } from 'fastify';
 
 @Injectable()
@@ -9,7 +9,6 @@ export class UserInterceptor implements NestInterceptor {
 
     constructor(private readonly _logger: Logger) {
     }
-
 
     intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
         const cls = context.getClass();

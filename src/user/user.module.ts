@@ -7,7 +7,7 @@ import { UsersDao } from './dao/users.dao';
 
 @Module({
     imports: [ MongooseModule.forFeature([ { name: 'User', schema: UserSchema } ]) ],
-    // exports: [ UserService ],
+    exports: [ UserService ],
     controllers: [ UserController ],
     providers: [ UserService, Logger, UsersDao ],
 })

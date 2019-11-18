@@ -4,7 +4,7 @@ server:
 swagger:
   title: AutoConfig Back-End
   description: API for AutoConfig application
-  version: 1.0
+  version: 1.1.1
   tag: autoConfig
   path: documentation
 mongodb:
