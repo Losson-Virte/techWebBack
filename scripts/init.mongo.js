@@ -9,20 +9,24 @@ db.getCollection('users').insertMany([
         "pseudo": "user1",
         "password": "qwerty",
         "mail": "mail@mail.com",
+        "photo": "https://randomuser.me/portraits/women/59.jpg",
     },
     {
         "pseudo": "user2",
         "password": "soleil",
         "mail": "mailer@gmail.com",
+        "photo": "https://randomuser.me/portraits/women/59.jpg",
     },
     {
         "pseudo": "Michel",
         "password": "1234",
         "mail": "mymail@webmail.com",
+        "photo": "https://randomuser.me/portraits/women/59.jpg",
     },
     {
         "pseudo": "admin",
         "password": "admin",
         "mail": "protect@security.com",
+        "photo": "https://randomuser.me/portraits/women/59.jpg",
     }
     ]);

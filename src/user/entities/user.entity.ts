@@ -1,5 +1,5 @@
-import {Exclude, Expose, Type} from "class-transformer";
-import {ApiModelProperty} from "@nestjs/swagger";
+import {Exclude, Expose, Type} from 'class-transformer';
+import {ApiModelProperty} from '@nestjs/swagger';
 
 @Exclude()
 export class UserEntity {
@@ -21,6 +21,11 @@ export class UserEntity {
     @Expose()
     @Type(() => String)
     mail: string;
+
+    @ApiModelProperty({ description: 'Photo', example: 'https://randomuser.me/portraits/women/59.jpg' })
+    @Expose()
+    @Type(() => String)
+    photo: string;
 
     constructor(partial: Partial<UserEntity>) {
         Object.assign(this, partial);

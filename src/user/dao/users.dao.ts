@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import {Model, MongooseDocument} from "mongoose";
-import {InjectModel} from "@nestjs/mongoose";
-import {User} from "../interfaces/user.interface";
-import {from, Observable} from "rxjs";
-import {map} from "rxjs/operators";
-import {CreateUserDto} from "../dto/create-user.dto";
-import {UpdateUserDto} from "../dto/update-user.dto";
+import {Model, MongooseDocument} from 'mongoose';
+import {InjectModel} from '@nestjs/mongoose';
+import {User} from '../interfaces/user.interface';
+import {from, Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {CreateUserDto} from '../dto/create-user.dto';
+import {UpdateUserDto} from '../dto/update-user.dto';
 
 @Injectable()
 export class UsersDao {
@@ -14,7 +14,7 @@ export class UsersDao {
     find(): Observable<User[] | void> {
         return from(this._userModel.find({}))
             .pipe(
-                map((docs: MongooseDocument[]) => (!!docs && docs.length > 0) ? docs.map(_ => _.toJSON()) : undefined)
+                map((docs: MongooseDocument[]) => (!!docs && docs.length > 0) ? docs.map(_ => _.toJSON()) : undefined),
             );
     }
 
@@ -28,14 +28,14 @@ export class UsersDao {
     create(user: CreateUserDto): Observable<User> {
         return from(this._userModel.create(user))
             .pipe(
-                map((doc: MongooseDocument) => doc.toJSON())
+                map((doc: MongooseDocument) => doc.toJSON()),
             );
     }
 
     findByIdAndUpdate(id: string, user: UpdateUserDto): Observable<User | void> {
         return from(this._userModel.findByIdAndUpdate(id, user, { new: true }))
             .pipe(
-                map((doc: MongooseDocument) => !!doc ? doc.toJSON() : undefined)
+                map((doc: MongooseDocument) => !!doc ? doc.toJSON() : undefined),
             );
     }
 

@@ -1,12 +1,12 @@
 import {ConflictException, Injectable, NotFoundException, UnprocessableEntityException} from '@nestjs/common';
-import {User} from "./interfaces/user.interface";
-import {USER} from "../data/user";
-import {from, Observable, of, throwError} from "rxjs";
-import {catchError, find, findIndex, flatMap, map, tap} from "rxjs/operators";
-import {CreateUserDto} from "./dto/create-user.dto";
-import {UpdateUserDto} from "./dto/update-user.dto";
-import {UserEntity} from "./entities/user.entity";
-import {UsersDao} from "./dao/users.dao";
+import {User} from './interfaces/user.interface';
+import {USER} from '../data/user';
+import {from, Observable, of, throwError} from 'rxjs';
+import {catchError, find, findIndex, flatMap, map, tap} from 'rxjs/operators';
+import {CreateUserDto} from './dto/create-user.dto';
+import {UpdateUserDto} from './dto/update-user.dto';
+import {UserEntity} from './entities/user.entity';
+import {UsersDao} from './dao/users.dao';
 
 @Injectable()
 export class UserService {
@@ -57,7 +57,7 @@ export class UserService {
                     !!_ ?
                         of(new UserEntity((_))) :
                         throwError(new NotFoundException(`User with id '${id}' not found`)),
-                )
+                ),
             );
 
     }
@@ -90,7 +90,7 @@ export class UserService {
             .pipe(
                 map(_ =>
                     Object.assign(_, {
-                        id: this._createId()
+                        id: this._createId(),
                     }),
                 ),
             );
