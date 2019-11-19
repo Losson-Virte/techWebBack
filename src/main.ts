@@ -8,7 +8,7 @@ import {UserModule} from './user/user.module';
 import {AppConfig} from './interfaces/app-config.interface';
 import {SwaggerConfig} from './interfaces/swagger-config.interface';
 import { ComposantModule } from './composant/composant.module';
-import fastifyCors = require('fastify-cors');
+import { AuthModule } from './auth/auth.module';
 
 async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -33,7 +33,7 @@ async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
       .build();
 
   const autoConfigDocument = SwaggerModule.createDocument(app, options, {
-      include: [UserModule, ComposantModule],
+      include: [UserModule, ComposantModule, AuthModule],
   });
 
   SwaggerModule.setup(swaggerConfig.path, app, autoConfigDocument);

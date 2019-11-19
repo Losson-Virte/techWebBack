@@ -35,6 +35,21 @@ export class UserService {
             );
     }
 
+    // TODO: A réctiver lors de la correction de validateUser
+    /*
+    findByPseudo(pseudo: string) {
+      return this._usersDao.findByPseudo(pseudo)
+        .pipe(
+          catchError(e => throwError(new UnprocessableEntityException(e.message))),
+          flatMap(_ =>
+            !!_ ?
+              of(new UserEntity(_)) :
+              throwError(new NotFoundException(`User with pseudo '${pseudo}' not found`)),
+          ),
+        );
+    }
+     */
+
     create(user: CreateUserDto): Observable<UserEntity> {
         return this._addUser(user)
             .pipe(

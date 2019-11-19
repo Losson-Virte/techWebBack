@@ -3,7 +3,7 @@ import {ApiModelProperty} from '@nestjs/swagger';
 
 @Exclude()
 export class UserEntity {
-    @ApiModelProperty({ description: 'Unique identifier in the database', example:"1573997603317"})
+    @ApiModelProperty({ description: 'Unique identifier in the database', example: '1573997603317' })
     @Expose()
     @Type(() => String)
     id: string;

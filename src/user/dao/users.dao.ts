@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {Model, MongooseDocument} from 'mongoose';
 import {InjectModel} from '@nestjs/mongoose';
 import {User} from '../interfaces/user.interface';
-import {from, Observable} from 'rxjs';
+import { from, Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 import {CreateUserDto} from '../dto/create-user.dto';
 import {UpdateUserDto} from '../dto/update-user.dto';
@@ -25,6 +25,15 @@ export class UsersDao {
             );
     }
 
+    // TODO: A corriger, soucis pour trouver dans MongoDB
+    /*
+    findByPseudo(username: string): Observable<User[] | void> {
+        return from(this._userModel.find({pseudo : 'username'}))
+          .pipe(
+            map((doc: MongooseDocument) => !!doc ? doc.toJSON() : undefined),
+          );
+    }
+    */
     create(user: CreateUserDto): Observable<User> {
         return from(this._userModel.create(user))
             .pipe(
