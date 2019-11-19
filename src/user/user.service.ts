@@ -10,11 +10,8 @@ import {UsersDao} from './dao/users.dao';
 
 @Injectable()
 export class UserService {
-    private _user: User[];
-
-    constructor(private readonly _usersDao: UsersDao) {
-        this._user = [].concat(USER);
-    }
+  constructor(private readonly _usersDao: UsersDao) {
+  }
 
     findAll(): Observable<UserEntity[] | void> {
         return this._usersDao.find()

@@ -1,6 +1,4 @@
 import { ConflictException, Injectable, NotFoundException, UnprocessableEntityException } from '@nestjs/common';
-import { Composant } from './interfaces/composant.interface';
-import { COMPOSANT } from '../data/composant';
 import { ComposantsDao } from './dao/composants.dao';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, flatMap, map } from 'rxjs/operators';
@@ -10,10 +8,7 @@ import { UpdateComposantDto } from './dto/update-composant.dto';
 
 @Injectable()
 export class ComposantService {
-  private _composant: Composant[];
-
   constructor(private readonly _composantsDao: ComposantsDao) {
-    this._composant = [].concat(COMPOSANT);
   }
 
   findAll(): Observable<ComposantEntity[] | void> {

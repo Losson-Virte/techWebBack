@@ -103,3 +103,101 @@ db.getCollection('composants').insertMany([
         "price": 50,
     },
 ]);
+
+// Insert configuration array
+db.getCollection('configurations').insertMany([
+    {
+        "name": "Configuration gamer lowcost",
+        "composants": [
+            {
+                "type": "MotherBoard",
+                "name": "MSI Cheap",
+                "price": 50,
+            },
+            {
+                "type": "CPU",
+                "name": "Intel Cheap",
+                "price": 100,
+            },
+            {
+                "type": "GPU",
+                "name": "AMD Cheap",
+                "price": 200,
+            }
+        ],
+        "user": {
+                "pseudo": "user1",
+                "password": "qwerty",
+                "mail": "mail@mail.com",
+                "photo": "https://randomuser.me/portraits/women/59.jpg",
+        },
+    },
+    {
+        "name": "Config pour G@m3rZ",
+        "composants": [
+            {
+                "type": "GPU",
+                "name": "RTX 2080",
+                "price": 2000,
+            },
+            {
+                "type": "CPU",
+                "name": "I9 9000",
+                "price": 1500,
+            },
+            {
+                "type": "MotherBoard",
+                "name": "Aorus Xtreme",
+                "price": 1000,
+            }
+        ],
+        "user": {
+            "pseudo": "Ayaya",
+            "password": "1234",
+            "mail": "ayaya@AYAYA.com",
+            "photo": "https://cdn.discordapp.com/emojis/318713508948606976.png",
+        },
+    },
+    {
+        "name": "SLI des Titans",
+        "composants": [
+            {
+                "type": "GPU",
+                "name": "RTX 2080",
+                "price": 2000,
+            },
+            {
+                "type": "GPU",
+                "name": "RTX 2080",
+                "price": 2000,
+            },
+            {
+                "type": "GPU",
+                "name": "RTX 2080",
+                "price": 2000,
+            }
+        ],
+        "user": {
+            "pseudo": "user1",
+            "password": "qwerty",
+            "mail": "mail@mail.com",
+            "photo": "https://randomuser.me/portraits/women/59.jpg",
+        },
+    },
+    {
+        "name": "Config en cours",
+        "composants": [
+            {
+                "type": "GPU",
+                "name": "RTX 2080",
+                "price": 2000,
+            },
+        ],
+        "user": {
+            "pseudo": "JeanJaques",
+            "password": "jjGlasses",
+            "mail": "jj.postman@op.gg",
+            "photo": "https://cdn.discordapp.com/emojis/318713500648210433.png",
+        },
+    },
+]);
