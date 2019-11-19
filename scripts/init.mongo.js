@@ -49,7 +49,7 @@ db.getCollection('composants').insertMany([
         "price": 200,
     },
     {
-        "type": "Processor",
+        "type": "CPU",
         "name": "I9 9000",
         "price": 1500,
     },

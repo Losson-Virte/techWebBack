@@ -8,12 +8,15 @@ import {UserModule} from './user/user.module';
 import {AppConfig} from './interfaces/app-config.interface';
 import {SwaggerConfig} from './interfaces/swagger-config.interface';
 import { ComposantModule } from './composant/composant.module';
+import fastifyCors = require('fastify-cors');
 
 async function bootstrap(config: AppConfig, swaggerConfig: SwaggerConfig) {
   const app = await NestFactory.create<NestFastifyApplication>(
       AppModule,
-      new FastifyAdapter({ logger: true }),
+      new FastifyAdapter({ logger: true}),
   );
+
+  app.enableCors();
 
   app.useGlobalPipes(
       new ValidationPipe({
