@@ -14,6 +14,7 @@ export class UserEntity {
     pseudo: string;
 
     @ApiModelProperty({ description: 'Password', example: 'Pa$$w0rD' })
+    @Expose()
     @Type(() => String)
     password: string;
 
