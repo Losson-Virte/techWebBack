@@ -1,4 +1,4 @@
-import {Body, Controller, Delete, Get, Param, Post, Put, UseInterceptors} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Logger, Param, Post, Put, UseInterceptors } from '@nestjs/common';
 import {Observable} from 'rxjs';
 import {UserService} from './user.service';
 import {UserInterceptor} from './interceptors/user.interceptor';

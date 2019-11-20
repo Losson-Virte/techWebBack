@@ -1,6 +1,4 @@
 import {ConflictException, Injectable, NotFoundException, UnprocessableEntityException} from '@nestjs/common';
-import {User} from './interfaces/user.interface';
-import {USER} from '../data/user';
 import {Observable, of, throwError} from 'rxjs';
 import {catchError, flatMap, map} from 'rxjs/operators';
 import {CreateUserDto} from './dto/create-user.dto';
@@ -86,7 +84,7 @@ export class UserService {
             );
     }
 
-    private _addUser(user: CreateUserDto): Observable<UserEntity> {
+    private _addUser(user: CreateUserDto): Observable<CreateUserDto> {
         return of(user)
             .pipe(
                 map(_ =>
