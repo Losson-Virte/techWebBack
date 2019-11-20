@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export const UserSchema = new mongoose.Schema({
-    pseudonyme: {
+    pseudo: {
         type: String,
         required: true,
         trim: true,

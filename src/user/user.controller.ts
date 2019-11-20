@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Logger, Param, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, ClassSerializerInterceptor, Controller, Delete, Get, Logger, Param, Post, Put, UseInterceptors } from '@nestjs/common';
 import {Observable} from 'rxjs';
 import {UserService} from './user.service';
 import {UserInterceptor} from './interceptors/user.interceptor';
@@ -17,6 +17,7 @@ import {
 
 @ApiUseTags('User')
 @Controller('user')
+@UseInterceptors(ClassSerializerInterceptor)
 @UseInterceptors(UserInterceptor)
 export class UserController {
     constructor(private readonly _userService: UserService) {}
