@@ -24,7 +24,7 @@ export const ConfigurationSchema = new mongoose.Schema({
     },
   },
   user: {
-    pseudonyme: {
+    pseudo: {
       type: String,
       required: true,
       trim: true,
